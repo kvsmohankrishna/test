@@ -10,7 +10,7 @@ parameters {
     stages {
        stage('Terraform apply or destroy for EKS') {
             steps {
-                sh 'aws eks update-kubeconfig --region eu-central-1 --name ${params.environment}-infra-eks-cluster'
+                sh 'aws eks update-kubeconfig --region eu-central-1 --name ${params.environment}-infra-eks-docker'
                 sh 'kubectl config set-context --current --namespace=kube-system'
                 sh 'kubectl get nodes'
                 sh 'kubectl create namespace'
